@@ -28,25 +28,7 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-primary-600 text-white py-2 hidden md:block">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <Phone className="w-4 h-4" />
-              <span>(555) 123-4567</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <MapPin className="w-4 h-4" />
-              <span>123 Dental Street, City, State 12345</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Clock className="w-4 h-4" />
-            <span>Mon-Fri: 8AM-6PM | Sat: 9AM-3PM</span>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main Navigation */}
       <motion.nav
