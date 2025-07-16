@@ -157,7 +157,7 @@ export default function Home() {
                 Meet Dr. Sarah Johnson
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Dr. Johnson graduated from the University of Dental Medicine with honors 
+                Dr. Johnson grad=uated from the University of Dental Medicine with honors 
                 and has been practicing dentistry for over 15 years. She specializes in 
                 cosmetic and restorative dentistry, committed to providing personalized care 
                 in a comfortable environment.
