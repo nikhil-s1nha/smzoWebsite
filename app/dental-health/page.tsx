@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { 
-  Tooth,
   Shield,
   Heart,
   Clock,
@@ -24,7 +23,7 @@ export default function DentalHealth() {
 
   const healthTopics = [
     {
-      icon: Tooth,
+      icon: Shield,
       title: "Oral Hygiene Basics",
       description: "Learn the fundamentals of proper brushing and flossing techniques",
       color: "bg-blue-100 text-blue-600",

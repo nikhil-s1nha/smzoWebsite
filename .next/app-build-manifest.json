@@ -26,6 +26,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/page.js"
     ],
+    "/dental-health/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dental-health/page.js"
+    ],
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
