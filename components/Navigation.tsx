@@ -8,6 +8,7 @@ import Link from 'next/link'
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [aboutDropdown, setAboutDropdown] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +20,9 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+    { name: 'About Us', href: '/about', dropdown: [
+      { name: 'Meet the Team', href: '/about#our-dentist' }
+    ] },
     { name: 'Patient Info', href: '/patient-info' },
     { name: 'Services', href: '/services' },
     { name: 'Dental Health', href: '/dental-health' },
@@ -63,6 +66,9 @@ const Navigation = () => {
                   key={item.name}
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
+                  className="relative"
+                  onMouseEnter={() => item.dropdown && setAboutDropdown(true)}
+                  onMouseLeave={() => item.dropdown && setAboutDropdown(false)}
                 >
                   <Link
                     href={item.href}
@@ -71,6 +77,21 @@ const Navigation = () => {
                     {item.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
+                  {/* Dropdown for About Us */}
+                  {item.dropdown && aboutDropdown && (
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                      {item.dropdown.map((drop) => (
+                        <Link
+                          key={drop.name}
+                          href={drop.href}
+                          className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg"
+                          onClick={() => setAboutDropdown(false)}
+                        >
+                          {drop.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -126,6 +147,21 @@ const Navigation = () => {
                     >
                       {item.name}
                     </Link>
+                    {/* Mobile Dropdown for About Us */}
+                    {item.dropdown && (
+                      <div className="pl-4">
+                        {item.dropdown.map((drop) => (
+                          <Link
+                            key={drop.name}
+                            href={drop.href}
+                            className="block text-gray-600 hover:text-primary-600 py-1"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {drop.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 ))}
                 <motion.div

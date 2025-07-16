@@ -28,27 +28,6 @@ export default function PatientInfo() {
 
   const patientServices = [
     {
-      icon: Clock,
-      title: "Office Hours",
-      description: "Monday - Friday: 8:00 AM - 6:00 PM | Saturday: 9:00 AM - 3:00 PM",
-      href: "#",
-      color: "bg-blue-100 text-blue-600"
-    },
-    {
-      icon: Phone,
-      title: "Contact Information",
-      description: "Phone: (555) 123-4567 | Emergency: (555) 123-4568",
-      href: "#",
-      color: "bg-green-100 text-green-600"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      description: "123 Dental Street, City, State 12345 | Free parking available",
-      href: "#",
-      color: "bg-purple-100 text-purple-600"
-    },
-    {
       icon: Star,
       title: "Patient Reviews",
       description: "Read what our patients say about their experience",
@@ -148,7 +127,7 @@ export default function PatientInfo() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-50 to-dental-50">
+      <section className="relative pt-32 pb-8 bg-gradient-to-br from-primary-50 to-dental-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -167,24 +146,29 @@ export default function PatientInfo() {
         </div>
       </section>
 
-
-
-      {/* Patient Services Grid */}
-      <section className="py-20 bg-gray-50">
+      {/* Patient Resources Grid - moved up */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
+          {/* Quick Info Bar */}
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            {quickInfo.map((info, idx) => (
+              <div key={info.title} className="flex items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+                <info.icon className="w-5 h-5 text-primary-600 mr-2" />
+                <span className="font-medium text-gray-700 mr-2">{info.title}:</span>
+                <span className="text-gray-600 text-sm">{info.details[0]}</span>
+              </div>
+            ))}
+          </div>
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Patient Resources
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Access all the information and tools you need for a smooth dental care experience.
-            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

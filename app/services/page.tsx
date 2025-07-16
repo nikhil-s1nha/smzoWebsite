@@ -189,7 +189,7 @@ export default function Services() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-50 to-dental-50">
+      <section className="relative pt-32 pb-10 bg-gradient-to-br from-primary-50 to-dental-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -209,24 +209,11 @@ export default function Services() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Comprehensive Dental Care
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We offer a full range of dental services to meet all your oral health needs.
-            </p>
-          </motion.div>
+          
 
-          <div className="space-y-16">
+          <div className="space-y-10">
             {services.map((category, categoryIndex) => (
               <motion.div
                 key={category.category}
@@ -286,151 +273,6 @@ export default function Services() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Our Services */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-dental-600 text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              Why Choose Our Services?
-            </h2>
-            <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Experience the difference that advanced technology and compassionate care can make.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Care</h3>
-              <p className="opacity-90">
-                Experienced professionals with advanced training and certifications.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Advanced Technology</h3>
-              <p className="opacity-90">
-                State-of-the-art equipment for precise, comfortable treatments.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Comfortable Environment</h3>
-              <p className="opacity-90">
-                Relaxing atmosphere designed to reduce anxiety and stress.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Family Friendly</h3>
-              <p className="opacity-90">
-                Welcoming environment for patients of all ages and backgrounds.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Guarantee */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Our Service Guarantee
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                We stand behind the quality of our work and your satisfaction. 
-                If you're not completely satisfied with your treatment, we'll work 
-                with you to make it right.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-dental-500 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Quality Assurance</h4>
-                    <p className="text-gray-600">All treatments meet the highest standards of care</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-dental-500 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Satisfaction Guarantee</h4>
-                    <p className="text-gray-600">We're committed to your complete satisfaction</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-dental-500 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Follow-up Care</h4>
-                    <p className="text-gray-600">Comprehensive aftercare and support</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&h=400&fit=crop"
-                alt="Dental Care"
-                className="rounded-lg shadow-xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">100%</div>
-                  <div className="text-sm text-gray-600">Satisfaction Guaranteed</div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>

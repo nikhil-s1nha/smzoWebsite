@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { 
   Phone,
   MapPin,
@@ -23,6 +23,22 @@ export default function Contact() {
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const contactInfoRef = useRef<HTMLDivElement>(null)
+  const [showScrollCue, setShowScrollCue] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!contactInfoRef.current) return
+      const rect = contactInfoRef.current.getBoundingClientRect()
+      if (rect.bottom < 0) {
+        setShowScrollCue(false)
+      } else {
+        setShowScrollCue(true)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -105,7 +121,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" ref={contactInfoRef}>
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
@@ -132,6 +148,15 @@ export default function Contact() {
               </motion.div>
             ))}
           </div>
+          {/* Scroll Cue */}
+          {showScrollCue && (
+            <div className="flex justify-center mt-12">
+              <span className="animate-bounce text-primary-600 text-lg font-semibold flex items-center gap-2">
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                Scroll for more
+              </span>
+            </div>
+          )}
         </div>
       </section>
 

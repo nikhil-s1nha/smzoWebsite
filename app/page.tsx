@@ -65,19 +65,16 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      rating: 5,
-      text: "The best dental experience I've ever had. The staff is incredibly professional and caring."
+      name: "Jessica M.",
+      text: "Dr. Johnson and her team are amazing! They made me feel comfortable and explained every step. My smile has never looked better!"
     },
     {
-      name: "Michael Chen",
-      rating: 5,
-      text: "Dr. Smith and the team made me feel comfortable throughout my entire treatment."
+      name: "Brian S.",
+      text: "The staff is so friendly and professional. I actually look forward to my dental visits now. Highly recommend SMZO Dental!"
     },
     {
-      name: "Emily Rodriguez",
-      rating: 5,
-      text: "Outstanding care and attention to detail. I highly recommend SMZO Dental!"
+      name: "Linda K.",
+      text: "I had a dental emergency and they got me in right away. The care and attention I received was outstanding."
     }
   ]
 
@@ -85,130 +82,72 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-dental-50"></div>
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+      {/* Full-page Hero Banner */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-dental-50 overflow-hidden">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">Your Smile, <span className="text-primary-600">Our Passion</span></h1>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">Experience exceptional dental care in a modern, comfortable environment. We're committed to your oral health and beautiful smile.</p>
+          <button
+            className="btn-primary px-10 py-4 text-lg"
+            onClick={() => window.location.href = '/contact'}
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Your Smile,
-              <span className="text-primary-600 block">Our Passion</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Experience exceptional dental care in a modern, comfortable environment. 
-              We're committed to your oral health and beautiful smile.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="btn-primary text-lg px-8 py-4"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Book Your Appointment
-              </motion.button>
-              <motion.button
-                className="btn-secondary text-lg px-8 py-4"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn About Us
-              </motion.button>
-            </div>
-          </motion.div>
+            Book Your Appointment
+          </button>
         </div>
-
-        {/* Floating elements */}
-        <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-16 h-16 bg-dental-200 rounded-full opacity-20"
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
       </section>
 
-      {/* Dentist & Why Choose Section */}
-      <section className="py-20 bg-white">
+      {/* Two-column Section: Dentist & Why Choose */}
+      <section className="relative py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Dentist Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center lg:text-left"
-            >
-              <div className="mb-8">
-                <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
-                  alt="Dr. Sarah Johnson"
-                  className="w-64 h-64 rounded-full mx-auto lg:mx-0 object-cover shadow-xl"
-                />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Meet Dr. Sarah Johnson
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Dr. Johnson grad=uated from the University of Dental Medicine with honors 
-                and has been practicing dentistry for over 15 years. She specializes in 
-                cosmetic and restorative dentistry, committed to providing personalized care 
-                in a comfortable environment.
+          <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-12">
+            {/* Left: Dentist */}
+            <div className="flex-1 flex flex-col items-center lg:items-end text-center lg:text-right justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
+                alt="Dr. Sarah Johnson"
+                className="w-56 h-56 rounded-full object-cover shadow-xl mb-6"
+              />
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet Dr. Sarah Johnson</h2>
+              <p className="text-lg text-gray-600 mb-6 max-w-md">
+                Dr. Johnson graduated from the University of Dental Medicine with honors and has been practicing dentistry for over 15 years. She specializes in cosmetic and restorative dentistry, committed to providing personalized care in a comfortable environment.
               </p>
-              <motion.button
-                className="btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                className="btn-primary px-8 py-3"
+                onClick={() => window.location.href = '/about#our-dentist'}
               >
                 Learn More About Dr. Johnson
-              </motion.button>
-            </motion.div>
-
-            {/* Why Choose Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Why Choose SMZO Dental?
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                We combine advanced technology with compassionate care to deliver 
-                exceptional dental experiences for you and your family.
+              </button>
+            </div>
+            {/* Vertical Divider */}
+            <div className="hidden lg:flex items-stretch">
+              <div className="w-px bg-gray-200 mx-12 self-stretch opacity-50" />
+            </div>
+            {/* Right: Why Choose */}
+            <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left justify-center">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose SMZO Dental?</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-md">
+                We combine advanced technology with compassionate care to deliver exceptional dental experiences for you and your family.
               </p>
-              
-              <div className="space-y-6">
+              <div className="space-y-6 w-full max-w-md">
                 {features.map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex items-start space-x-4"
-                  >
-                    <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-6 h-6 text-primary-600" />
+                  <div key={feature.title} className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <feature.icon className="w-5 h-5 text-primary-600" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600">
-                        {feature.description}
-                      </p>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm">{feature.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+              <button
+                className="btn-secondary mt-8 px-8 py-3"
+                onClick={() => window.location.href = '/about'}
+              >
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -267,7 +206,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -280,7 +219,7 @@ export default function Home() {
               What Our Patients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied patients
+              Real stories from our patients and their families.
             </p>
           </motion.div>
 
@@ -290,15 +229,11 @@ export default function Home() {
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="card p-6"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="card p-8 text-center"
               >
-                <p className="text-gray-600 mb-4 italic">
-                  "{testimonial.text}"
-                </p>
-                <p className="font-semibold text-gray-900">
-                  {testimonial.name}
-                </p>
+                <p className="text-lg text-gray-700 mb-6">"{testimonial.text}"</p>
+                <div className="font-semibold text-primary-600">- {testimonial.name}</div>
               </motion.div>
             ))}
           </div>

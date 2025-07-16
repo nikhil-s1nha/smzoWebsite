@@ -79,29 +79,6 @@ export default function About() {
     }
   ]
 
-  const values = [
-    {
-      icon: Heart,
-      title: "Compassionate Care",
-      description: "We treat every patient like family, with empathy and understanding."
-    },
-    {
-      icon: Shield,
-      title: "Safety First",
-      description: "Rigorous safety protocols and state-of-the-art sterilization."
-    },
-    {
-      icon: Users,
-      title: "Family Focused",
-      description: "Welcoming environment for patients of all ages."
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "Committed to the highest standards of dental care."
-    }
-  ]
-
   return (
     <div className="min-h-screen">
       <Navigation />

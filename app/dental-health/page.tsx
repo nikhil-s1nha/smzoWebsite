@@ -100,7 +100,7 @@ export default function DentalHealth() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-50 to-dental-50">
+      <section className="relative pt-32 pb-12 bg-gradient-to-br from-primary-50 to-dental-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -120,7 +120,7 @@ export default function DentalHealth() {
       </section>
 
       {/* Health Topics */}
-      <section className="py-20 bg-white">
+      <section className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             ref={ref}
