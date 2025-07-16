@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, MapPin, Clock } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,16 +47,12 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <motion.div
-              className="flex items-center space-x-2"
+              className="flex items-center mr-8"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="w-10 h-10 bg-dental-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">SMZO Dental</h1>
-                <p className="text-xs text-gray-600">Family Dentistry</p>
+              <div className="flex flex-col items-start justify-center">
+                <Image src="/logo.jpg" alt="Smile Zone Family Dental Logo" width={100} height={100} className="rounded" />
               </div>
             </motion.div>
 

@@ -15,6 +15,7 @@ import {
   Calendar
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
+import Image from 'next/image';
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -193,9 +194,11 @@ export default function About() {
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <img
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
+                  <Image
+                    src="/media/doctor.png"
                     alt="Dr. Sarah Johnson"
+                    width={400}
+                    height={400}
                     className="w-full h-96 object-cover rounded-lg shadow-lg"
                   />
                 </div>

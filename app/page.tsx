@@ -15,6 +15,7 @@ import {
   MapPin
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
+import Image from 'next/image';
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -66,15 +67,15 @@ export default function Home() {
   const testimonials = [
     {
       name: "Jessica M.",
-      text: "Dr. Johnson and her team are amazing! They made me feel comfortable and explained every step. My smile has never looked better!"
+      text: "test 1"
     },
     {
       name: "Brian S.",
-      text: "The staff is so friendly and professional. I actually look forward to my dental visits now. Highly recommend SMZO Dental!"
+      text: "test2"
     },
     {
       name: "Linda K.",
-      text: "I had a dental emergency and they got me in right away. The care and attention I received was outstanding."
+      text: "test3"
     }
   ]
 
@@ -103,19 +104,19 @@ export default function Home() {
             {/* Left: Dentist */}
             <div className="flex-1 flex flex-col items-center lg:items-end text-center lg:text-right justify-center">
               <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
-                alt="Dr. Sarah Johnson"
+                src="/doctor.png"
+                alt="Dr. Milu Sinhaad"
                 className="w-56 h-56 rounded-full object-cover shadow-xl mb-6"
               />
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet Dr. Sarah Johnson</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet Dr. Milu Sinha</h2>
               <p className="text-lg text-gray-600 mb-6 max-w-md">
-                Dr. Johnson graduated from the University of Dental Medicine with honors and has been practicing dentistry for over 15 years. She specializes in cosmetic and restorative dentistry, committed to providing personalized care in a comfortable environment.
+                Dr. Sinha has been praciting  
               </p>
               <button
                 className="btn-primary px-8 py-3"
                 onClick={() => window.location.href = '/about#our-dentist'}
               >
-                Learn More About Dr. Johnson
+                Learn More About Dr. Sinha
               </button>
             </div>
             {/* Vertical Divider */}
@@ -321,15 +322,15 @@ export default function Home() {
               <div className="space-y-2 text-gray-400">
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2" />
-                  <span>123 Dental Street, City, State 12345</span>
+                  <span>34743 Ardenwood Blvd, Fremont, CA 94555</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  <span>(555) 123-4567</span>
+                  <span>(510) 505-0123</span>
                 </div>
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span>Mon-Fri: 8AM-6PM</span>
+                  <span>Mon, Wed-Fri: 9:30AM-5:30PM</span>
                 </div>
               </div>
             </div>
