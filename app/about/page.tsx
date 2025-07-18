@@ -25,9 +25,9 @@ export default function About() {
 
   const teamMembers = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Lead Dentist",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop",
+      name: "Dr. Milu Sinha",
+      role: "Owner, General Dentist",
+      image: "/doctor.png",
       description: "Specializes in cosmetic and restorative dentistry with 15+ years of experience."
     },
     {
@@ -190,27 +190,24 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="card p-8"
+              className="bg-white rounded-xl p-8 shadow-none"
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
+                <div className="flex justify-center">
                   <Image
-                    src="/media/doctor.png"
-                    alt="Dr. Sarah Johnson"
+                    src="/doctor.png"
+                    alt="Dr. Milu Sinha"
                     width={400}
                     height={400}
-                    className="w-full h-96 object-cover rounded-lg shadow-lg"
+                    className="w-60 h-90 object-cover rounded-lg"
                   />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    Dr. Sarah Johnson, DDS
+                    Dr. Milu Sinha, DDS
                   </h3>
                   <p className="text-lg text-gray-600 mb-6">
-                    Dr. Johnson graduated with honors from the University of Dental Medicine 
-                    and has been practicing dentistry for over 15 years. She specializes in 
-                    cosmetic and restorative dentistry, with advanced training in Invisalign 
-                    and dental implants.
+                    Dr. Sinha graduated with
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
@@ -283,7 +280,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-dental-600 text-white">
+      <section className="py-20 bg-dental-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

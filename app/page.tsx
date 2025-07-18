@@ -85,7 +85,17 @@ export default function Home() {
       
       {/* Full-page Hero Banner */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-dental-50 overflow-hidden">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
+        {/* Banner background image */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <Image
+            src="/bannerFront.jpg"
+            alt="Dental Banner"
+            fill
+            style={{ objectFit: 'cover', opacity: 0.35 }}
+            priority
+          />
+        </div>
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">Your Smile, <span className="text-primary-600">Our Passion</span></h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">Experience exceptional dental care in a modern, comfortable environment. We're committed to your oral health and beautiful smile.</p>
           <button
@@ -98,7 +108,7 @@ export default function Home() {
       </section>
 
       {/* Two-column Section: Dentist & Why Choose */}
-      <section className="relative py-24 bg-white">
+      <section className="relative py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-12">
             {/* Left: Dentist */}
@@ -125,7 +135,7 @@ export default function Home() {
             </div>
             {/* Right: Why Choose */}
             <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left justify-center">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose SMZO Dental?</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Smile Zone?</h2>
               <p className="text-xl text-gray-600 mb-8 max-w-md">
                 We combine advanced technology with compassionate care to deliver exceptional dental experiences for you and your family.
               </p>
@@ -154,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -208,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
