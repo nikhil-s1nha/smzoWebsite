@@ -46,15 +46,17 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <motion.div
-              className="flex items-center mr-8"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex flex-col items-start justify-center">
-                <Image src="/logo.jpg" alt="Smile Zone Family Dental Logo" width={100} height={100} className="rounded" />
-              </div>
-            </motion.div>
+            <Link href="/">
+              <motion.div
+                className="flex items-center mr-8 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex flex-col items-start justify-center">
+                  <Image src="/logo.jpg" alt="Smile Zone Family Dental Logo" width={100} height={100} className="rounded" />
+                </div>
+              </motion.div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
