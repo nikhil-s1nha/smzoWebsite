@@ -10,16 +10,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@headlessui/react": "^1.7.17",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "autoprefixer": "^10.4.16",
     "framer-motion": "^10.16.0",
     "lucide-react": "^0.292.0",
-    "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.16",
+    "next": "^14.0.0",
     "postcss": "^8.4.31",
-    "@headlessui/react": "^1.7.17",
-    "react-intersection-observer": "^9.5.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.0",
@@ -29,7 +30,13 @@
     "eslint-config-next": "^14.0.0",
     "typescript": "^5.2.0"
   },
-  "keywords": ["dental", "clinic", "website", "animations", "modern"],
+  "keywords": [
+    "dental",
+    "clinic",
+    "website",
+    "animations",
+    "modern"
+  ],
   "author": "SMZO Dental Clinic",
   "license": "MIT"
-} 
+}

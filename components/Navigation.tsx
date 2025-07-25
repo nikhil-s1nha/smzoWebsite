@@ -101,9 +101,12 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link href="/contact" className="btn-primary">
+              <button 
+                className="btn-primary"
+                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
+              >
                 Book Appointment
-              </Link>
+              </button>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -169,13 +172,15 @@ const Navigation = () => {
                   transition={{ delay: navItems.length * 0.1 }}
                   className="pt-4"
                 >
-                  <Link
-                    href="/contact"
+                  <button
                     className="btn-primary w-full text-center block"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false)
+                      window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')
+                    }}
                   >
                     Book Appointment
-                  </Link>
+                  </button>
                 </motion.div>
               </div>
             </motion.div>

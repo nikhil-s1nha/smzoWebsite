@@ -85,7 +85,7 @@ export default function About() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-50 to-dental-50">
+      <section className="relative pt-32 pb-10 bg-gradient-to-br from-primary-50 to-dental-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -105,9 +105,9 @@ export default function About() {
       </section>
 
       {/* Practice Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -134,7 +134,7 @@ export default function About() {
                   <div className="text-gray-600">Happy Patients</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">15+</div>
+                  <div className="text-3xl font-bold text-primary-600 mb-2">13+</div>
                   <div className="text-gray-600">Years Experience</div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function About() {
       </section>
 
       {/* Our Dentist */}
-      <section className="py-20 bg-gray-50">
+      <section id="our-dentist" className="py-6 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             ref={ref}
@@ -180,12 +180,12 @@ export default function About() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Dentist
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the dedicated professional behind SMZO Dental's exceptional care.
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -197,9 +197,9 @@ export default function About() {
                   <Image
                     src="/doctor.png"
                     alt="Dr. Milu Sinha"
-                    width={400}
-                    height={400}
-                    className="w-60 h-90 object-cover rounded-lg"
+                    width={500}
+                    height={500}
+                    className="w-80 h-96 object-cover rounded-lg"
                   />
                 </div>
                 <div>
@@ -207,20 +207,26 @@ export default function About() {
                     Dr. Milu Sinha, DDS
                   </h3>
                   <p className="text-lg text-gray-600 mb-6">
-                    Dr. Sinha graduated with
+                    "We always try to be a 'Smile Zone' for our patients, in more ways than one!"
+                  </p>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Dr. Milu Sinha brings over a decade of dental expertise to the San Francisco Bay Area with her warm, caring personality that makes patients feel at ease. She approaches every visit in a calm & practical manner, providing gentle and kind care that puts patients at comfort.
+                  </p>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Established in 2012, Smile Zone Family Dental is dedicated to providing personalized, gentle care. Our goal is to create a "Class A" dental experience using conservative, state-of-the-art procedures for beautiful, long-lasting smiles. We offer comprehensive care including general dentistry, endodontics, oral surgery, pediatric dentistry, Invisalign, and cosmetic solutions.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <GraduationCap className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-700">University of Dental Medicine, DDS</span>
+                      <span className="text-gray-700">Active member of American Dental Association</span>
                     </div>
                     <div className="flex items-center">
                       <Calendar className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-700">15+ years of experience</span>
+                      <span className="text-gray-700">Serving Bay Area for over 10 years</span>
                     </div>
                     <div className="flex items-center">
                       <Award className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-700">Board Certified in General Dentistry</span>
+                      <span className="text-gray-700">Great with kids & family-focused care</span>
                     </div>
                   </div>
                 </div>
@@ -231,7 +237,7 @@ export default function About() {
       </section>
 
       {/* Meet the Team */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -280,7 +286,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-dental-900 text-white">
+      <section className="py-20 bg-primary-600 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -346,7 +352,7 @@ export default function About() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -364,6 +370,7 @@ export default function About() {
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
               >
                 Book Your Appointment
               </motion.button>
@@ -371,6 +378,7 @@ export default function About() {
                 className="btn-secondary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.href = '/contact'}
               >
                 Contact Us
               </motion.button>

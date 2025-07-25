@@ -189,7 +189,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">Experience exceptional dental care in a modern, comfortable environment. We're committed to your oral health and beautiful smile.</p>
           <button
             className="btn-primary px-10 py-4 text-lg"
-            onClick={() => window.location.href = '/contact'}
+            onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
           >
             Book Your Appointment
           </button>
@@ -209,7 +209,7 @@ export default function Home() {
               />
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet Dr. Milu Sinha</h2>
               <p className="text-lg text-gray-600 mb-6 max-w-md">
-              Dr. Milu Sinha, D.D.S, practices a full scope of general and cosmetic dentistry with 17 years of expertise ranging from porcelain crowns, dental implants, root canals, crowns and bridges . 
+              Dr. Milu Sinha, D.D.S, practices a full scope of general and cosmetic dentistry with 17 years of expertise ranging from porcelain crowns, dental implants, root canals, crowns and bridges. 
               </p>
               <button
                 className="btn-primary px-8 py-3"
@@ -307,13 +307,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               What Our Patients Say
@@ -325,7 +325,7 @@ export default function Home() {
 
           {/* Testimonials Carousel */}
           <div className="relative max-w-4xl mx-auto">
-            <div className="relative h-80 overflow-hidden rounded-xl">
+            <div className="relative h-96 overflow-hidden rounded-xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial}
@@ -335,15 +335,25 @@ export default function Home() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <div className="card p-12 text-center max-w-3xl">
-                    <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                      "{testimonials[currentTestimonial].text}"
-                    </p>
-                    <div className="font-semibold text-primary-600 text-lg">
-                      - {testimonials[currentTestimonial].name}
+                  <div className="bg-white p-8 text-center w-full h-full flex flex-col justify-center rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] transition-all duration-300">
+                    <div className="flex-1 flex flex-col justify-center">
+                                              <p className={`text-gray-700 mb-4 leading-relaxed ${
+                          testimonials[currentTestimonial].text.length > 200 
+                            ? 'text-sm md:text-base' 
+                            : testimonials[currentTestimonial].text.length > 100 
+                            ? 'text-base md:text-lg' 
+                            : 'text-lg md:text-xl'
+                        }`}>
+                        "{testimonials[currentTestimonial].text}"
+                      </p>
                     </div>
-                    <div className="text-sm text-gray-500 mt-2">
-                      {testimonials[currentTestimonial].date}
+                    <div className="mt-auto">
+                      <div className="font-semibold text-primary-600 text-base md:text-lg">
+                        - {testimonials[currentTestimonial].name}
+                      </div>
+                      <div className="text-sm text-gray-500 mt-0.5">
+                        {testimonials[currentTestimonial].date}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -353,15 +363,15 @@ export default function Home() {
             {/* Navigation Buttons */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200 z-10"
+              className="absolute -left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-200 z-10 border border-gray-200"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
+              <ChevronLeft className="w-7 h-7 text-gray-600" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200 z-10"
+              className="absolute -right-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-200 z-10 border border-gray-200"
             >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
+              <ChevronRight className="w-7 h-7 text-gray-600" />
             </button>
 
             {/* Dots Indicator */}
@@ -410,6 +420,7 @@ export default function Home() {
                 className="border-2 border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-white hover:text-dental-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Online
