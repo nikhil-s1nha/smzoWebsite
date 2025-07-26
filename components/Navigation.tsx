@@ -66,8 +66,12 @@ const Navigation = () => {
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                   className="relative"
-                  onMouseEnter={() => item.dropdown && setAboutDropdown(true)}
-                  onMouseLeave={() => item.dropdown && setAboutDropdown(false)}
+                  onMouseEnter={() => {
+                    if (item.name === 'About Us' && item.dropdown) setAboutDropdown(true)
+                  }}
+                  onMouseLeave={() => {
+                    if (item.name === 'About Us' && item.dropdown) setAboutDropdown(false)
+                  }}
                 >
                   <Link
                     href={item.href}
@@ -77,7 +81,7 @@ const Navigation = () => {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                   {/* Dropdown for About Us */}
-                  {item.dropdown && aboutDropdown && (
+                  {item.dropdown && aboutDropdown && item.name === 'About Us' && (
                     <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                       {item.dropdown.map((drop) => (
                         <Link
@@ -91,6 +95,7 @@ const Navigation = () => {
                       ))}
                     </div>
                   )}
+
                 </motion.div>
               ))}
             </div>
@@ -149,7 +154,7 @@ const Navigation = () => {
                     >
                       {item.name}
                     </Link>
-                    {/* Mobile Dropdown for About Us */}
+                    {/* Mobile Dropdown for About Us and Dental Health */}
                     {item.dropdown && (
                       <div className="pl-4">
                         {item.dropdown.map((drop) => (

@@ -1,9 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/patient-info/home-instructions/page": "app/patient-info/home-instructions/page.js",
   "/page": "app/page.js",
+  "/dental-health/page": "app/dental-health/page.js",
+  "/dental-health/age-specific-care/page": "app/dental-health/age-specific-care/page.js",
   "/services/page": "app/services/page.js",
   "/patient-info/page": "app/patient-info/page.js",
-  "/patient-info/scheduling/page": "app/patient-info/scheduling/page.js",
-  "/patient-info/first-visit/page": "app/patient-info/first-visit/page.js"
+  "/contact/page": "app/contact/page.js"
 }

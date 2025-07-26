@@ -130,7 +130,7 @@ export default function About() {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">5000+</div>
+                  <div className="text-3xl font-bold text-primary-600 mb-2">7000+</div>
                   <div className="text-gray-600">Happy Patients</div>
                 </div>
                 <div className="text-center">

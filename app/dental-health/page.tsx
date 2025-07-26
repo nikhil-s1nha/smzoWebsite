@@ -11,7 +11,9 @@ import {
   BookOpen,
   Video,
   Download,
-  ArrowRight
+  ArrowRight,
+  Star,
+  Play
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 
@@ -28,10 +30,22 @@ export default function DentalHealth() {
       description: "Learn the fundamentals of proper brushing and flossing techniques",
       color: "bg-blue-100 text-blue-600",
       articles: [
-        "How to Brush Your Teeth Properly",
-        "The Importance of Flossing",
-        "Choosing the Right Toothbrush",
-        "Mouthwash: When and How to Use It"
+        {
+          title: "How to Brush Your Teeth Properly",
+          href: "/dental-health/oral-hygiene#how-to-brush"
+        },
+        {
+          title: "The Importance of Flossing",
+          href: "/dental-health/oral-hygiene#how-to-floss"
+        },
+        {
+          title: "Choosing the Right Toothbrush",
+          href: "/dental-health/oral-hygiene#choosing-products"
+        },
+        {
+          title: "Mouthwash: When and How to Use It",
+          href: "/dental-health/oral-hygiene#choosing-products"
+        }
       ]
     },
     {
@@ -40,10 +54,22 @@ export default function DentalHealth() {
       description: "Tips and strategies to prevent common dental problems",
       color: "bg-green-100 text-green-600",
       articles: [
-        "Preventing Cavities",
-        "Gum Disease Prevention",
-        "Dental Sealants for Children",
-        "Fluoride and Your Oral Health"
+        {
+          title: "Periodontal Maintenance",
+          href: "/dental-health/periodontal-maintenance#overview"
+        },
+        {
+          title: "Prophylaxis (Teeth Cleaning)",
+          href: "/dental-health/prophylaxis#overview"
+        },
+        {
+          title: "Preventing Gum Disease",
+          href: "/dental-health/periodontal-maintenance#prevention"
+        },
+        {
+          title: "Professional Cleanings",
+          href: "/dental-health/prophylaxis#benefits"
+        }
       ]
     },
     {
@@ -52,22 +78,46 @@ export default function DentalHealth() {
       description: "How your diet affects your teeth and gums",
       color: "bg-pink-100 text-pink-600",
       articles: [
-        "Foods That Strengthen Teeth",
-        "Foods to Avoid for Better Oral Health",
-        "The Impact of Sugar on Teeth",
-        "Hydration and Oral Health"
+        {
+          title: "Foods That Strengthen Teeth",
+          href: "/dental-health/nutrition#strengthen-teeth"
+        },
+        {
+          title: "Foods to Avoid for Better Oral Health",
+          href: "/dental-health/nutrition#avoid-foods"
+        },
+        {
+          title: "The Impact of Sugar on Teeth",
+          href: "/dental-health/nutrition#sugar-impact"
+        },
+        {
+          title: "Hydration and Oral Health",
+          href: "/dental-health/nutrition#hydration"
+        }
       ]
     },
     {
       icon: Clock,
       title: "Age-Specific Care",
-      description: "Dental care tips for different life stages",
+      description: "Dental care tips for different life stages, from infancy to adulthood",
       color: "bg-purple-100 text-purple-600",
       articles: [
-        "Dental Care for Children",
-        "Teen Dental Health",
-        "Adult Oral Care",
-        "Senior Dental Health"
+        {
+          title: "Your Child's First Dental Visit",
+          href: "/dental-health/age-specific-care#first-visit"
+        },
+        {
+          title: "Preventative Care for Children",
+          href: "/dental-health/age-specific-care#preventative-care"
+        },
+        {
+          title: "Cavity Prevention in Children",
+          href: "/dental-health/age-specific-care#cavity-prevention"
+        },
+        {
+          title: "The Importance of Baby Teeth",
+          href: "/dental-health/age-specific-care#baby-teeth"
+        }
       ]
     }
   ]
@@ -144,7 +194,8 @@ export default function DentalHealth() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="card p-6"
+                className={`card p-6 ${topic.title === "Oral Hygiene Basics" ? "cursor-pointer hover:shadow-xl transition-all duration-300" : ""}`}
+                onClick={topic.title === "Oral Hygiene Basics" ? () => window.location.href = '/dental-health/oral-hygiene' : undefined}
               >
                 <div className="flex items-center mb-6">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center ${topic.color} mr-4`}>
@@ -160,9 +211,16 @@ export default function DentalHealth() {
                   <h4 className="font-semibold text-gray-900">Featured Articles:</h4>
                   <ul className="space-y-2">
                     {topic.articles.map((article, idx) => (
-                      <li key={idx} className="flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200 cursor-pointer">
+                      <li 
+                        key={idx} 
+                        className="flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the card click from firing
+                          window.location.href = article.href;
+                        }}
+                      >
                         <BookOpen className="w-4 h-4 mr-2" />
-                        {article}
+                        {article.title}
                         <ArrowRight className="w-4 h-4 ml-auto" />
                       </li>
                     ))}
@@ -307,7 +365,11 @@ export default function DentalHealth() {
         </div>
       </section>
 
-      {/* Educational Videos */}
+
+
+
+
+      {/* Educational Videos Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -319,179 +381,109 @@ export default function DentalHealth() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Educational Videos
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Watch our informative videos to learn more about dental health and procedures.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="card overflow-hidden group"
-            >
-              <div className="relative">
-                <div className="bg-gray-200 h-48 flex items-center justify-center">
-                  <Video className="w-16 h-16 text-gray-400" />
-                </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Proper Brushing Technique
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Learn the correct way to brush your teeth for maximum effectiveness.
-                </p>
-                <button className="text-primary-600 font-medium flex items-center group-hover:text-primary-700 transition-colors duration-200">
-                  Watch Video <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="card overflow-hidden group"
-            >
-              <div className="relative">
-                <div className="bg-gray-200 h-48 flex items-center justify-center">
-                  <Video className="w-16 h-16 text-gray-400" />
-                </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Flossing Made Easy
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Master the art of flossing with our step-by-step guide.
-                </p>
-                <button className="text-primary-600 font-medium flex items-center group-hover:text-primary-700 transition-colors duration-200">
-                  Watch Video <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="card overflow-hidden group"
-            >
-              <div className="relative">
-                <div className="bg-gray-200 h-48 flex items-center justify-center">
-                  <Video className="w-16 h-16 text-gray-400" />
-                </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Nutrition for Healthy Teeth
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Discover which foods promote strong teeth and healthy gums.
-                </p>
-                <button className="text-primary-600 font-medium flex items-center group-hover:text-primary-700 transition-colors duration-200">
-                  Watch Video <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Downloadable Resources */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Downloadable Resources
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Access helpful guides and checklists to support your oral health journey.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="card p-6 text-center group"
-            >
-              <Download className="w-12 h-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Oral Hygiene Checklist
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Daily checklist to ensure complete oral care.
-              </p>
-              <button className="btn-primary w-full">
-                Download PDF
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="card p-6 text-center group"
-            >
-              <Download className="w-12 h-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Emergency Contact Guide
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Quick reference for dental emergencies.
-              </p>
-              <button className="btn-primary w-full">
-                Download PDF
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="card p-6 text-center group"
-            >
-              <Download className="w-12 h-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Nutrition Guide
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Foods that promote dental health.
-              </p>
-              <button className="btn-primary w-full">
-                Download PDF
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="card p-6 text-center group"
-            >
-              <Download className="w-12 h-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Appointment Prep Guide
-              </h3>
-              <p className="text-gray-600 mb-4">
-                How to prepare for your dental visit.
-              </p>
-              <button className="btn-primary w-full">
-                Download PDF
-              </button>
-            </motion.div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  id: 1,
+                  title: "Proper Brushing Technique",
+                  description: "Learn the correct way to brush your teeth for maximum effectiveness.",
+                  videoUrl: "https://www.youtube.com/watch?v=7kGXQDwT6IA",
+                  preview: "https://img.youtube.com/vi/7kGXQDwT6IA/hqdefault.jpg",
+                  icon: Shield,
+                  color: "bg-blue-100 text-blue-600"
+                },
+                {
+                  id: 2,
+                  title: "Flossing Made Easy",
+                  description: "Master the art of flossing with our step-by-step guide.",
+                  videoUrl: "https://www.youtube.com/watch?v=t6TLiAtoV2k",
+                  preview: "https://img.youtube.com/vi/t6TLiAtoV2k/hqdefault.jpg",
+                  icon: Heart,
+                  color: "bg-green-100 text-green-600"
+                },
+                {
+                  id: 3,
+                  title: "Nutrition for Healthy Teeth",
+                  description: "Discover which foods promote strong teeth and healthy gums.",
+                  videoUrl: "https://www.youtube.com/watch?v=7F5rVxe4XXE",
+                  preview: "https://img.youtube.com/vi/7F5rVxe4XXE/hqdefault.jpg",
+                  icon: Star,
+                  color: "bg-purple-100 text-purple-600"
+                }
+              ].map((video, index) => (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="card overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Video Thumbnail */}
+                  <div className="relative bg-gray-200 h-48 flex items-center justify-center overflow-hidden cursor-pointer"
+                       onClick={() => window.open(video.videoUrl, '_blank')}>
+                    {/* Video Preview Image */}
+                    <img 
+                      src={video.preview} 
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // If image fails to load, show a fallback with video icon
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
+                              <div class="text-center">
+                                <svg class="w-16 h-16 text-gray-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <p class="text-gray-600 text-sm font-medium">Click to Watch</p>
+                              </div>
+                            </div>
+                          `;
+                        }
+                      }}
+                    />
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300">
+                      <motion.div
+                        className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors duration-300"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Play className="w-8 h-8 text-primary-600 ml-1" />
+                      </motion.div>
+                    </div>
+                  </div>
+                  
+                  {/* Video Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {video.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      {video.description}
+                    </p>
+                    <motion.button
+                      className="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200 flex items-center group"
+                      whileHover={{ x: 5 }}
+                      onClick={() => {
+                        window.open(video.videoUrl, '_blank')
+                      }}
+                    >
+                      Watch Video
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                    </motion.button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
