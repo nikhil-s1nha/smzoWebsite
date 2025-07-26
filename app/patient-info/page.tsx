@@ -80,7 +80,7 @@ export default function PatientInfo() {
       icon: Download,
       title: "Forms",
       description: "Download and complete patient forms",
-      href: "/patient-info/forms",
+      href: "https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=9952&RKID=2464&WSDID=75163&NFID=75164&NFID=121484",
       color: "bg-gray-100 text-gray-600"
     },
     {
@@ -95,29 +95,23 @@ export default function PatientInfo() {
   const quickInfo = [
     {
       icon: Clock,
-      title: "Office Hours",
+      title: "Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 3:00 PM",
-        "Sunday: Closed"
+        "Mon, Wed-Fri: 9:30AM-5:30PM"
       ]
     },
     {
       icon: Phone,
-      title: "Contact Information",
+      title: "Phone",
       details: [
-        "Phone: (555) 123-4567",
-        "Emergency: (555) 123-4568",
-        "Email: info@smzodental.com"
+        "(510) 505-0123"
       ]
     },
     {
       icon: MapPin,
       title: "Location",
       details: [
-        "123 Dental Street",
-        "City, State 12345",
-        "Free parking available"
+        "34743 Ardenwood Blvd, Fremont, CA 94536"
       ]
     }
   ]
@@ -152,11 +146,11 @@ export default function PatientInfo() {
           {/* Quick Info Bar */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {quickInfo.map((info, idx) => (
-              <div key={info.title} className="flex items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+              <Link key={info.title} href="/contact" className="flex items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 hover:shadow-md transition-all duration-200 cursor-pointer">
                 <info.icon className="w-5 h-5 text-primary-600 mr-2" />
                 <span className="font-medium text-gray-700 mr-2">{info.title}:</span>
                 <span className="text-gray-600 text-sm">{info.details[0]}</span>
-              </div>
+              </Link>
             ))}
           </div>
           <motion.div
@@ -180,22 +174,41 @@ export default function PatientInfo() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <Link href={service.href}>
-                  <div className="card p-6 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${service.color}`}>
-                        <service.icon className="w-6 h-6" />
+                {service.href.startsWith('http') ? (
+                  <a href={service.href} target="_blank" rel="noopener noreferrer">
+                    <div className="card p-6 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${service.color}`}>
+                          <service.icon className="w-6 h-6" />
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors duration-200" />
                       </div>
-                      <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors duration-200" />
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {service.description}
+                      </p>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {service.description}
-                    </p>
-                  </div>
-                </Link>
+                  </a>
+                ) : (
+                  <Link href={service.href}>
+                    <div className="card p-6 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${service.color}`}>
+                          <service.icon className="w-6 h-6" />
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors duration-200" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {service.description}
+                      </p>
+                    </div>
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
