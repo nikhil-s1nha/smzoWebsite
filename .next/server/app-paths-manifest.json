@@ -1,8 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/dental-health/page": "app/dental-health/page.js",
   "/dental-health/age-specific-care/page": "app/dental-health/age-specific-care/page.js",
+  "/dental-health/page": "app/dental-health/page.js",
   "/services/page": "app/services/page.js",
   "/patient-info/page": "app/patient-info/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/page": "app/page.js"
 }
