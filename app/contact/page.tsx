@@ -80,8 +80,7 @@ export default function Contact() {
       icon: Phone,
       title: "Phone",
       details: [
-        "Main: (555) 123-4567",
-        "Emergency: (555) 123-4568"
+        "(510) 505-0123"
       ],
       color: "bg-blue-100 text-blue-600"
     },
@@ -91,7 +90,6 @@ export default function Contact() {
       details: [
         "34743 Ardenwood Blvd",
         "Fremont, CA 94555",
-        "Free parking available"
       ],
       color: "bg-green-100 text-green-600"
     },
@@ -99,9 +97,7 @@ export default function Contact() {
       icon: Clock,
       title: "Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 3:00 PM",
-        "Sunday: Closed"
+        "Monday - Friday: 9:30 AM - 5:30 PM"
       ],
       color: "bg-purple-100 text-purple-600"
     },
@@ -259,7 +255,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                        placeholder="(555) 123-4567"
+                        placeholder="(510) 505-0123"
                       />
                     </div>
                     <div>
@@ -351,7 +347,7 @@ export default function Contact() {
                   Dental Emergency?
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  If you're experiencing a dental emergency, please call us immediately.
+                  If you're experiencing a dental emergency during business hours, please call us immediately.
                 </p>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-red-600 mr-2" />
@@ -421,7 +417,7 @@ export default function Contact() {
                 What if I have a dental emergency after hours?
               </h3>
               <p className="text-gray-600">
-                Call our emergency line at (555) 123-4568. We provide emergency care 24/7.
+                For dental emergencies, please call us at (510) 505-0123 during business hours. For severe emergencies outside of business hours, please visit your nearest emergency room or urgent care facility.
               </p>
             </motion.div>
 

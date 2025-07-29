@@ -292,8 +292,7 @@ export default function PatientInfo() {
                 What if I have a dental emergency?
               </h3>
               <p className="text-gray-600">
-                For dental emergencies, call our emergency line immediately. 
-                We provide emergency care during and outside regular hours.
+                For dental emergencies during business hours, please call us at (510) 505-0123 immediately. For severe emergencies outside of business hours, please visit your nearest emergency room or urgent care facility.
               </p>
             </motion.div>
           </div>
