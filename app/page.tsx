@@ -16,7 +16,8 @@ import {
   MapPin,
   ChevronLeft,
   ChevronRight,
-  Mail
+  Mail,
+  Facebook
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Image from 'next/image';
@@ -210,6 +211,10 @@ export default function Home() {
             <div className="flex items-center justify-center">
               <Mail className="w-5 h-5 mr-2 text-primary-600" />
               <span className="font-medium">smilezonefamilydental@gmail.com</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <Facebook className="w-5 h-5 mr-2 text-primary-600" />
+              <a href="https://www.facebook.com/smilezonefamilydental" target="_blank" rel="noopener noreferrer" className="font-medium">Smile Zone Family Dental</a>
             </div>
           </div>
         </div>

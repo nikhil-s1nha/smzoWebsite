@@ -32,7 +32,7 @@ export default function Services() {
           name: "Dental Cleanings",
           description: "Professional cleanings to remove plaque and tartar buildup",
           duration: "30-60 minutes",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/dentalcleaning.jpg"
         },
         {
           name: "Dental Exams",
@@ -44,13 +44,13 @@ export default function Services() {
           name: "X-Rays & Imaging",
           description: "Digital imaging for accurate diagnosis and treatment planning",
           duration: "15-30 minutes",
-          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop"
+          image: "/x-ray.jpg"
         },
         {
           name: "Fluoride Treatments",
           description: "Strengthen enamel and prevent tooth decay",
           duration: "15 minutes",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/fluoride.jpg"
         }
       ]
     },
@@ -64,7 +64,7 @@ export default function Services() {
           name: "Teeth Whitening",
           description: "Professional whitening for a brighter, more confident smile",
           duration: "1-2 hours",
-          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop"
+          image: "/teethWhitening.jpg"
         },
         {
           name: "Porcelain Veneers",
@@ -96,25 +96,25 @@ export default function Services() {
           name: "Dental Fillings",
           description: "Tooth-colored fillings to restore decayed teeth",
           duration: "30-60 minutes",
-          image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop"
+          image: "/filling.jpg"
         },
         {
           name: "Dental Crowns",
           description: "Custom crowns to protect and restore damaged teeth",
           duration: "2 visits",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/crown.jpg"
         },
         {
           name: "Dental Bridges",
           description: "Replace missing teeth with fixed bridge solutions",
           duration: "2-3 visits",
-          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop"
+          image: "/bridge.jpg"
         },
         {
           name: "Dental Implants",
           description: "Permanent tooth replacement with titanium implants",
           duration: "3-6 months",
-          image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop"
+          image: "/implant.jpg"
         }
       ]
     },
@@ -128,13 +128,13 @@ export default function Services() {
           name: "Traditional Braces",
           description: "Metal braces for comprehensive teeth straightening",
           duration: "18-24 months",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/braces.jpg"
         },
         {
           name: "Invisalign",
           description: "Clear aligners for discreet teeth straightening",
           duration: "12-18 months",
-          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop"
+          image: "/invisalign.jpg"
         },
         {
           name: "Ceramic Braces",
@@ -146,7 +146,7 @@ export default function Services() {
           name: "Retainers",
           description: "Maintain your straight smile after treatment",
           duration: "Lifetime wear",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/retainers.jpg"
         }
       ]
     },
@@ -160,25 +160,25 @@ export default function Services() {
           name: "Toothache Relief",
           description: "Immediate pain relief and treatment for severe toothaches",
           duration: "Same day",
-          image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop"
+          image: "/toothache.jpg"
         },
         {
           name: "Broken Tooth Repair",
           description: "Emergency repair for chipped, cracked, or broken teeth",
           duration: "Same day",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+          image: "/brokenTooth.jpg"
         },
         {
           name: "Knocked-Out Tooth",
           description: "Emergency treatment to save and reimplant knocked-out teeth",
           duration: "Immediate",
-          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop"
+          image: "/knockedOut.jpg"
         },
         {
           name: "Dental Abscess",
           description: "Treatment for infected teeth and gum abscesses",
           duration: "Same day",
-          image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop"
+          image: "/abcess.jpg"
         }
       ]
     }
@@ -298,9 +298,9 @@ export default function Services() {
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.location.href = '/under-construction'}
+                onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
               >
-                Book Your Consultation
+                Book Appointment
               </motion.button>
               <motion.button
                 className="btn-secondary text-lg px-8 py-4"
