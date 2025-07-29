@@ -187,12 +187,20 @@ export default function Home() {
         <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">Your Smile, <span className="text-primary-600">Our Passion</span></h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">Experience exceptional dental care in a modern, comfortable environment. We're committed to your oral health and beautiful smile.</p>
+          <div className="flex flex-col sm:flex-row gap-4">
           <button
-            className="btn-primary px-10 py-4 text-lg"
-            onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
-          >
-            Book Your Appointment
-          </button>
+              className="btn-secondary px-10 py-4 text-lg"
+              onClick={() => window.location.href = '/contact#send-message'}
+            >
+              Request Your Appointment
+            </button>
+            <button
+              className="btn-primary px-10 py-4 text-lg"
+              onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
+            >
+              Book Your Appointment
+            </button>
+          </div>
         </div>
       </section>
 
@@ -440,7 +448,7 @@ export default function Home() {
                   <span className="text-white font-bold">S</span>
                 </div>
                 <div>
-                  <h3 className="font-bold">SMZO Dental</h3>
+                  <h3 className="font-bold">Smile Zone Family Dental</h3>
                   <p className="text-sm text-gray-400">Family Dentistry</p>
                 </div>
               </div>
@@ -489,7 +497,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SMZO Dental Clinic. All rights reserved.</p>
+            <p>&copy; 2024 Smile Zone Family Dental. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -40,6 +40,26 @@ export default function Contact() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Handle anchor link scrolling
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash
+      if (hash === '#send-message') {
+        setTimeout(() => {
+          const element = document.querySelector(hash) as HTMLElement
+          if (element) {
+            const navHeight = 60; // Approximate height of fixed navigation
+            const elementTop = element.offsetTop - navHeight - 20; // Extra 20px padding
+            window.scrollTo({
+              top: elementTop,
+              behavior: 'smooth'
+            })
+          }
+        }, 500)
+      }
+    }
+  }, [])
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Here you would typically send the form data to your backend
@@ -69,8 +89,8 @@ export default function Contact() {
       icon: MapPin,
       title: "Address",
       details: [
-        "123 Dental Street",
-        "City, State 12345",
+        "34743 Ardenwood Blvd",
+        "Fremont, CA 94555",
         "Free parking available"
       ],
       color: "bg-green-100 text-green-600"
@@ -89,8 +109,7 @@ export default function Contact() {
       icon: Mail,
       title: "Email",
       details: [
-        "info@smzodental.com",
-        "appointments@smzodental.com"
+        "smilezonefamilydental@gmail.com"
       ],
       color: "bg-red-100 text-red-600"
     }
@@ -166,6 +185,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
+              id="send-message"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -260,6 +280,7 @@ export default function Contact() {
                         <option value="emergency">Dental Emergency</option>
                         <option value="billing">Billing Question</option>
                         <option value="insurance">Insurance Question</option>
+                        <option value="invisalign">Clear Aligner/Invisalign</option>
                         <option value="other">Other</option>
                       </select>
                     </div>
@@ -301,17 +322,26 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              {/* Map Placeholder */}
+              {/* Map */}
               <div className="card p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Our Location
                 </h3>
-                <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-gray-600">Interactive Map</p>
-                    <p className="text-sm text-gray-500">123 Dental Street, City, State 12345</p>
-                  </div>
+                <div className="bg-gray-200 rounded-lg h-64 overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=34743+Ardenwood+Blvd,+Fremont,+CA+94555"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Smile Zone Family Dental Location"
+                  ></iframe>
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-gray-700 font-medium">34743 Ardenwood Blvd</p>
+                  <p className="text-gray-600">Fremont, CA 94555</p>
                 </div>
               </div>
 
@@ -325,30 +355,11 @@ export default function Contact() {
                 </p>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-red-600 mr-2" />
-                  <span className="text-red-600 font-semibold">(555) 123-4568</span>
+                  <span className="text-red-600 font-semibold">(510) 505-0123</span>
                 </div>
               </div>
 
-              {/* Quick Contact */}
-              <div className="card p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Quick Contact
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <MessageSquare className="w-5 h-5 text-primary-600 mr-3" />
-                    <span className="text-gray-600">Live Chat Available</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-primary-600 mr-3" />
-                    <span className="text-gray-600">info@smzodental.com</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-primary-600 mr-3" />
-                    <span className="text-gray-600">24/7 Emergency Line</span>
-                  </div>
-                </div>
-              </div>
+
             </motion.div>
           </div>
         </div>

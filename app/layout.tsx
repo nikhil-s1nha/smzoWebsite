@@ -5,12 +5,12 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SMZO Dental Clinic - Your Trusted Dental Care Partner',
+  title: 'Smile Zone Family Dental - Your Trusted Dental Care Partner',
   description: 'Experience exceptional dental care with our modern, patient-focused approach. From routine checkups to advanced treatments, we\'re committed to your oral health and beautiful smile.',
   keywords: 'dental clinic, dental care, oral health, dental services, family dentistry, cosmetic dentistry',
-  authors: [{ name: 'SMZO Dental Clinic' }],
+  authors: [{ name: 'Smile Zone Family Dental' }],
   openGraph: {
-    title: 'SMZO Dental Clinic - Your Trusted Dental Care Partner',
+    title: 'Smile Zone Family Dental - Your Trusted Dental Care Partner',
     description: 'Experience exceptional dental care with our modern, patient-focused approach.',
     type: 'website',
     locale: 'en_US',

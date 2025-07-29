@@ -25,13 +25,13 @@ export default function About() {
 
   const teamMembers = [
     {
-      name: "Dr. Milu Sinha",
-      role: "Owner, General Dentist",
-      image: "/doctor.png",
+      name: "Dr. Shun Chen, DDS",
+      role: "Implant Specialist",
+      image: "/shunchen.jpg",
       description: "Specializes in cosmetic and restorative dentistry with 15+ years of experience."
     },
     {
-      name: "Dr. Michael Chen",
+      name: "Dr. Shun Chen",
       role: "Orthodontist",
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop",
       description: "Expert in braces, Invisalign, and orthodontic surgery with 12+ years experience."
@@ -94,7 +94,7 @@ export default function About() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              About SMZO Dental
+              About Smile Zone Family Dental
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're more than just a dental practice. We're your partners in oral health, 
@@ -117,7 +117,7 @@ export default function About() {
                 Our Practice Story
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2010, SMZO Dental has been serving our community with 
+                Founded in 2012, Smile Zone Family Dental has been serving our community with 
                 dedication and excellence. What started as a small family practice 
                 has grown into a comprehensive dental care center, but our core 
                 values remain the same.
@@ -147,7 +147,7 @@ export default function About() {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+                src="/smzoOffice.jpg"
                 alt="Dental Practice"
                 className="rounded-lg shadow-xl"
               />
@@ -180,8 +180,8 @@ export default function About() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Dentist
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the dedicated professional behind SMZO Dental's exceptional care.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto whitespace-nowrap">
+              Meet the dedicated professional behind Smile Zone Family Dental's exceptional care.
             </p>
           </motion.div>
 
@@ -239,6 +239,7 @@ export default function About() {
       {/* Meet the Team */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
+          {/* Commented out Meet Our Team header
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -253,7 +254,42 @@ export default function About() {
               exceptional dental care in a comfortable environment.
             </p>
           </motion.div>
+          */}
 
+          {/* Special Doctor Section - Dr. Eric Osmolinski */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="bg-gray-100 rounded-lg p-8">
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                    Dr. Shun Chen, DDS
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                    Dr. Shun Chien has dedicated his career to advanced training in implants and oral surgery. A graduate of NYU College of Dentistry, he completed a General Practice Residency at NYU Langone Brooklyn Hospital, focusing on complex medical and trauma cases. Furthering his expertise, Dr. Chien pursued additional post-graduate training at Tufts University School of Dental Medicine.                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                    Since relocating to the Bay Area, Dr. Chien has taken great pleasure in assisting his patients with painless teeth extractions, expert removal of wisdom teeth impactions, and restoring smiles with dental implants to enhance function and confidence. Recognizing that some patients may experience anxiety about dental procedures, Dr. Chien offers various sedation options to ensure their comfort and peace of mind.</p>
+                  </div>
+                </div>
+                                  {/* Doctor Image */}
+                  <div className="lg:w-1/3">
+                    <img
+                      src="/shunchen.jpg"
+                      alt="Dr. Shun Chen"
+                      className="w-full h-80 object-contain rounded-lg"
+                    />
+                  </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Commented out team members grid for now
           <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <motion.div
@@ -282,6 +318,7 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+          */}
         </div>
       </section>
 
@@ -295,7 +332,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">
-              Why Patients Choose SMZO Dental
+              Why Patients Choose Smile Zone Family Dental
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
               Experience the difference that personalized care and advanced technology can make.
@@ -363,14 +400,14 @@ export default function About() {
               Ready to Meet Our Team?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Schedule your consultation and experience the SMZO Dental difference for yourself.
+              Schedule your consultation and experience the Smile Zone Family Dental difference for yourself.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
+                onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
               >
                 Book Your Appointment
               </motion.button>
