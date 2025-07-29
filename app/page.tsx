@@ -203,18 +203,26 @@ export default function Home() {
               Book Your Appointment
             </button>
           </div>
-          <div className="flex flex-col sm:flex-row gap-6 text-gray-700">
-            <div className="flex items-center justify-center">
-              <Phone className="w-5 h-5 mr-2 text-primary-600" />
-              <span className="font-medium">(510) 505-0123</span>
+          <div className="flex flex-col gap-4 text-gray-700">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex items-center justify-center">
+                <Phone className="w-5 h-5 mr-2 text-primary-600" />
+                <span className="font-medium">(510) 505-0123</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <Mail className="w-5 h-5 mr-2 text-primary-600" />
+                <span className="font-medium">smilezonefamilydental@gmail.com</span>
+              </div>
             </div>
-            <div className="flex items-center justify-center">
-              <Mail className="w-5 h-5 mr-2 text-primary-600" />
-              <span className="font-medium">smilezonefamilydental@gmail.com</span>
-            </div>
-            <div className="flex items-center justify-center">
-              <Facebook className="w-5 h-5 mr-2 text-primary-600" />
-              <a href="https://www.facebook.com/smilezonefamilydental" target="_blank" rel="noopener noreferrer" className="font-medium">Smile Zone Family Dental</a>
+            <div className="flex items-center justify-center gap-6">
+              <div className="flex items-center justify-center">
+                <Facebook className="w-5 h-5 mr-2 text-primary-600" />
+                <a href="https://www.facebook.com/smilezonefamilydental" target="_blank" rel="noopener noreferrer" className="font-medium">Smile Zone Family Dental</a>
+              </div>
+              <div className="flex items-center justify-center">
+                <Star className="w-5 h-5 mr-2 text-primary-600" />
+                <a href="https://www.google.com/search?sca_esv=5f3e024f075fa025&sxsrf=AE3TifNqdZEorkoRcHnfv0op9cnqI2hJxA:1753813422614&q=Smile+Zone+Family+Dental+Reviews&sa=X&ved=2ahUKEwi1rbqQ2OKOAxX9ATQIHYLoInIQ0bkNegQINhAE&biw=1722&bih=937&dpr=1" target="_blank" rel="noopener noreferrer" className="font-medium">Google Reviews</a>
+              </div>
             </div>
           </div>
         </div>
