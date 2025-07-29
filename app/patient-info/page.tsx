@@ -79,7 +79,7 @@ export default function PatientInfo() {
     {
       icon: Download,
       title: "Forms",
-      description: "Download and complete patient forms",
+      description: "Access and complete patient forms",
       href: "https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=9952&RKID=2464&WSDID=75163&NFID=75164&NFID=121484",
       color: "bg-gray-100 text-gray-600"
     },
