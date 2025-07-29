@@ -180,7 +180,7 @@ export default function FirstVisit() {
                       onClick={() => window.open('https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=9952&RKID=2464&WSDID=75163&NFID=75164&NFID=121484', '_blank')}
                     >
                       <FileText className="w-5 h-5 mr-2" />
-                      Download Forms
+                      Access Forms
                     </motion.button>
                   </div>
                 </motion.div>
