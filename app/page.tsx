@@ -15,7 +15,8 @@ import {
   Calendar,
   MapPin,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Mail
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Image from 'next/image';
@@ -187,8 +188,8 @@ export default function Home() {
         <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">Your Smile, <span className="text-primary-600">Our Passion</span></h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">Experience exceptional dental care in a modern, comfortable environment. We're committed to your oral health and beautiful smile.</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-          <button
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <button
               className="btn-secondary px-10 py-4 text-lg"
               onClick={() => window.location.href = '/contact#send-message'}
             >
@@ -196,10 +197,20 @@ export default function Home() {
             </button>
             <button
               className="btn-primary px-10 py-4 text-lg"
-              onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
+              onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
             >
               Book Your Appointment
             </button>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-6 text-gray-700">
+            <div className="flex items-center justify-center">
+              <Phone className="w-5 h-5 mr-2 text-primary-600" />
+              <span className="font-medium">(510) 505-0123</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <Mail className="w-5 h-5 mr-2 text-primary-600" />
+              <span className="font-medium">smilezonefamilydental@gmail.com</span>
+            </div>
           </div>
         </div>
       </section>
@@ -400,43 +411,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 dental-gradient text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              Ready to Transform Your Smile?
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Schedule your consultation today and take the first step towards 
-              a healthier, more beautiful smile.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="bg-white text-dental-600 font-medium py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
-              </motion.button>
-              <motion.button
-                className="border-2 border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-white hover:text-dental-600 transition-colors duration-300 flex items-center justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Book Online
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">

@@ -146,7 +146,7 @@ export default function PatientInfo() {
           {/* Quick Info Bar */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {quickInfo.map((info, idx) => (
-              <Link key={info.title} href="/contact" className="flex items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 hover:shadow-md transition-all duration-200 cursor-pointer">
+              <Link key={info.title} href="/contact#send-message" className="flex items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 hover:shadow-md transition-all duration-200 cursor-pointer">
                 <info.icon className="w-5 h-5 text-primary-600 mr-2" />
                 <span className="font-medium text-gray-700 mr-2">{info.title}:</span>
                 <span className="text-gray-600 text-sm">{info.details[0]}</span>

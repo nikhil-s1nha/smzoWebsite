@@ -108,7 +108,7 @@ const Navigation = () => {
             >
               <button 
                 className="btn-primary"
-                onClick={() => window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')}
+                onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
               >
                 Book Appointment
               </button>
@@ -181,7 +181,7 @@ const Navigation = () => {
                     className="btn-primary w-full text-center block"
                     onClick={() => {
                       setIsOpen(false)
-                      window.open('https://www.zocdoc.com/practice/smile-zone-family-dental-20075', '_blank')
+                      window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')
                     }}
                   >
                     Book Appointment

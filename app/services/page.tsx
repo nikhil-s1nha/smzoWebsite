@@ -243,7 +243,8 @@ export default function Services() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: serviceIndex * 0.1 }}
-                      className="card overflow-hidden group"
+                      className="card overflow-hidden group cursor-pointer"
+                      onClick={() => window.location.href = '/under-construction'}
                     >
                       <div className="relative overflow-hidden">
                         <img
@@ -297,6 +298,7 @@ export default function Services() {
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.href = '/under-construction'}
               >
                 Book Your Consultation
               </motion.button>
@@ -304,6 +306,7 @@ export default function Services() {
                 className="btn-secondary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.href = '/under-construction'}
               >
                 Learn More About Treatment
               </motion.button>

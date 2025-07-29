@@ -157,8 +157,7 @@ export default function About() {
                     <Award className="w-6 h-6 text-dental-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Award Winning</div>
-                    <div className="text-sm text-gray-600">Best Dental Practice 2023</div>
+                    <div className="font-semibold text-gray-900">Invisalign Gold Provider</div>
                   </div>
                 </div>
               </div>
@@ -239,7 +238,6 @@ export default function About() {
       {/* Meet the Team */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          {/* Commented out Meet Our Team header
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -247,16 +245,15 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Team
+              Visiting Dentists
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Our experienced professionals are dedicated to providing you with 
               exceptional dental care in a comfortable environment.
             </p>
           </motion.div>
-          */}
 
-          {/* Special Doctor Section - Dr. Eric Osmolinski */}
+          {/* Special Doctor Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -415,7 +412,7 @@ export default function About() {
                 className="btn-secondary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => window.location.href = '/contact#send-message'}
               >
                 Contact Us
               </motion.button>

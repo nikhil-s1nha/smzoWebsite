@@ -275,7 +275,7 @@ export default function Contact() {
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
                       >
                         <option value="">Select a subject</option>
-                        <option value="appointment">Schedule Appointment</option>
+                        <option value="appointment">Book Appointment</option>
                         <option value="consultation">Request Consultation</option>
                         <option value="emergency">Dental Emergency</option>
                         <option value="billing">Billing Question</option>
