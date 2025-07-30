@@ -14,18 +14,23 @@ import {
 } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  })
 
+export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const contactInfoRef = useRef<HTMLDivElement>(null)
   const [showScrollCue, setShowScrollCue] = useState(true)
+
+  // Check if user just submitted form successfully
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search)
+      if (urlParams.get('success') === 'true') {
+        setIsSubmitted(true)
+        // Clean up the URL
+        window.history.replaceState({}, document.title, window.location.pathname)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,20 +66,9 @@ export default function Contact() {
     }
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData)
-    setIsSubmitted(true)
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-  }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+
+
 
   const contactInfo = [
     {
@@ -205,12 +199,27 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 mb-6">
                     Thank you for contacting us. We'll get back to you within 24 hours.
                   </p>
+                  <motion.button
+                    onClick={() => setIsSubmitted(false)}
+                    className="btn-primary flex items-center justify-center mx-auto"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                    Send Another Message
+                  </motion.button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  action="https://formspree.io/f/xpwlrvov" 
+                  method="POST" 
+                  className="space-y-6"
+                >
+                  {/* Hidden field to redirect back to contact page after submission */}
+                  <input type="hidden" name="_next" value="http://localhost:3000/contact?success=true" />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -220,8 +229,6 @@ export default function Contact() {
                         type="text"
                         id="name"
                         name="name"
-                        value={formData.name}
-                        onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
                         placeholder="Your full name"
@@ -235,8 +242,6 @@ export default function Contact() {
                         type="email"
                         id="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
                         placeholder="your.email@example.com"
@@ -253,8 +258,6 @@ export default function Contact() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
                         placeholder="(510) 505-0123"
                       />
@@ -266,8 +269,6 @@ export default function Contact() {
                       <select
                         id="subject"
                         name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
                       >
@@ -290,8 +291,6 @@ export default function Contact() {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={6}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
@@ -299,6 +298,8 @@ export default function Contact() {
                     />
                   </div>
 
+
+                  
                   <motion.button
                     type="submit"
                     className="btn-primary w-full flex items-center justify-center"
