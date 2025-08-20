@@ -1,3 +1,5 @@
 {
-  "/contact/page": "app/contact/page.js"
+  "/page": "app/page.js",
+  "/patient-info/page": "app/patient-info/page.js",
+  "/patient-info/financial-policy/page": "app/patient-info/financial-policy/page.js"
 }

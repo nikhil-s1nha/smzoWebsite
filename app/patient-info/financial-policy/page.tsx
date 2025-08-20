@@ -104,7 +104,7 @@ export default function FinancialPolicy() {
                           We are in-network with most insurance carriers/companies to help minimize out-of-pocket costs and discount patient co-pays.
                         </p>
                         <p className="text-gray-700">
-                          We accept most <strong>PPO plans</strong> and <strong>Denti-Cal</strong>.
+                          We accept most <strong>PPO plans</strong>.
                         </p>
                         <p className="text-gray-700">
                           Most insurance companies are expected to respond within <strong>four to six weeks</strong>.
