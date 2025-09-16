@@ -274,14 +274,45 @@ export default function About() {
                     Since relocating to the Bay Area, Dr. Chien has taken great pleasure in assisting his patients with painless teeth extractions, expert removal of wisdom teeth impactions, and restoring smiles with dental implants to enhance function and confidence. Recognizing that some patients may experience anxiety about dental procedures, Dr. Chien offers various sedation options to ensure their comfort and peace of mind.</p>
                   </div>
                 </div>
-                                  {/* Doctor Image */}
-                  <div className="lg:w-1/3">
-                    <img
-                      src="/shunchen.jpg"
-                      alt="Dr. Shun Chen"
-                      className="w-full h-80 object-contain rounded-lg"
-                    />
+                {/* Doctor Image */}
+                <div className="lg:w-1/3 flex justify-center">
+                  <img
+                    src="/shunchen.jpg"
+                    alt="Dr. Shun Chen"
+                    className="w-80 h-80 object-cover object-top rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="bg-gray-100 rounded-lg p-8">
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                    Dr. Shymali Shah, DDS
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Dr. Shyamali Shah completed her dental studies from UNLV- University of Nevada at Las Vegas in May 2020. In her free time she likes to hiking and exploring new places, watching TV, spending time with family and friends. She is devoted to learning new dental techniques to provide the best patient care possible.
+                    </p>
                   </div>
+                </div>
+                {/* Doctor Image */}
+                <div className="lg:w-1/3 flex justify-center">
+                  <img
+                    src="/shymali.webp"
+                    alt="Dr. Shymali Shah"
+                    className="w-80 h-80 object-cover object-top rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
