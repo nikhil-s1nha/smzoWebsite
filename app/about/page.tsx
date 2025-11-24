@@ -25,7 +25,7 @@ export default function About() {
 
   const teamMembers = [
     {
-      name: "Dr. Shun Chen, DDS",
+      name: "Dr. Shun Chien, DDS",
       role: "Implant Specialist",
       image: "/shunchen.jpg",
       description: "Specializes in cosmetic and restorative dentistry with 15+ years of experience."
