@@ -31,7 +31,7 @@ export default function About() {
       description: "Specializes in cosmetic and restorative dentistry with 15+ years of experience."
     },
     {
-      name: "Dr. Shun Chen",
+      name: "Dr. Shun Chien",
       role: "Orthodontist",
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop",
       description: "Expert in braces, Invisalign, and orthodontic surgery with 12+ years experience."
@@ -265,7 +265,7 @@ export default function About() {
                 {/* Text Content */}
                 <div className="flex-1">
                   <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                    Dr. Shun Chen, DDS
+                    Dr. Shun Chien, DDS
                   </h3>
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
@@ -278,7 +278,7 @@ export default function About() {
                 <div className="lg:w-1/3 flex justify-center">
                   <img
                     src="/shunchen.jpg"
-                    alt="Dr. Shun Chen"
+                    alt="Dr. Shun Chien"
                     className="w-80 h-80 object-cover object-top rounded-lg"
                   />
                 </div>

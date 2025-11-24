@@ -19,6 +19,14 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const contactInfoRef = useRef<HTMLDivElement>(null)
   const [showScrollCue, setShowScrollCue] = useState(true)
+  const [redirectUrl, setRedirectUrl] = useState('/contact?success=true')
+
+  // Set redirect URL for form submission
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setRedirectUrl(`${window.location.origin}/contact?success=true`)
+    }
+  }, [])
 
   // Check if user just submitted form successfully
   useEffect(() => {
@@ -219,7 +227,7 @@ export default function Contact() {
                   className="space-y-6"
                 >
                   {/* Hidden field to redirect back to contact page after submission */}
-                  <input type="hidden" name="_next" value="http://localhost:3000/contact?success=true" />
+                  <input type="hidden" name="_next" value={redirectUrl} />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
