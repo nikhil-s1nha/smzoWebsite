@@ -125,22 +125,10 @@ export default function Services() {
       description: "Straighten your teeth and improve your bite with modern orthodontic solutions.",
       services: [
         {
-          name: "Traditional Braces",
-          description: "Metal braces for comprehensive teeth straightening",
-          duration: "18-24 months",
-          image: "/braces.jpg"
-        },
-        {
           name: "Invisalign",
           description: "Clear aligners for discreet teeth straightening",
           duration: "12-18 months",
           image: "/invisalign.jpg"
-        },
-        {
-          name: "Ceramic Braces",
-          description: "Tooth-colored braces for a more aesthetic option",
-          duration: "18-24 months",
-          image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop"
         },
         {
           name: "Retainers",

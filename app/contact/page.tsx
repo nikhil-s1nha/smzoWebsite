@@ -20,6 +20,7 @@ export default function Contact() {
   const contactInfoRef = useRef<HTMLDivElement>(null)
   const [showScrollCue, setShowScrollCue] = useState(true)
   const [redirectUrl, setRedirectUrl] = useState('/contact?success=true')
+  const [insuranceType, setInsuranceType] = useState('')
 
   // Set redirect URL for form submission
   useEffect(() => {
@@ -189,7 +190,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">
                 Send Us a Message
               </h2>
               <p className="text-gray-600 mb-8">
@@ -224,13 +225,13 @@ export default function Contact() {
                 <form 
                   action="https://formspree.io/f/xpwlrvov" 
                   method="POST" 
-                  className="space-y-6"
+                  className="space-y-4"
                 >
                   {/* Hidden field to redirect back to contact page after submission */}
                   <input type="hidden" name="_next" value={redirectUrl} />
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Full Name *
                       </label>
                       <input
@@ -243,7 +244,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Email Address *
                       </label>
                       <input
@@ -257,9 +258,9 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Phone Number
                       </label>
                       <input
@@ -271,7 +272,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Subject *
                       </label>
                       <select
@@ -292,8 +293,42 @@ export default function Contact() {
                     </div>
                   </div>
 
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="insuranceType" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Insurance Type
+                      </label>
+                      <select
+                        id="insuranceType"
+                        name="insuranceType"
+                        value={insuranceType}
+                        onChange={(e) => setInsuranceType(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                      >
+                        <option value="">Select insurance type</option>
+                        <option value="ppo">PPO</option>
+                        <option value="cash">Cash</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="insuranceName" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Insurance Name
+                      </label>
+                      <input
+                        type="text"
+                        id="insuranceName"
+                        name="insuranceName"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                        placeholder="Enter insurance name"
+                      />
+                      <p className="mt-1 text-xs text-gray-500 pl-2">
+                        We don't accept Denti-Cal/EPOs/HMOs.
+                      </p>
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
                       Message *
                     </label>
                     <textarea

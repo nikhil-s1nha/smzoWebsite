@@ -297,19 +297,22 @@ export default function About() {
                 {/* Text Content */}
                 <div className="flex-1">
                   <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                    Dr. Shymali Shah, DDS
+                    Dr. Bindi Patel, DDS
                   </h3>
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Dr. Shyamali Shah completed her dental studies from UNLV- University of Nevada at Las Vegas in May 2020. In her free time she likes to hiking and exploring new places, watching TV, spending time with family and friends. She is devoted to learning new dental techniques to provide the best patient care possible.
+                      Dr. Bindi Patel has received her DDS degree from the University of Southern California. She has completed her Master of Dental Surgery in the field of Orthodontics and Bachelor of Dental Surgery in general dentistry. During her graduate program, she treated patients aged between 8-20 years with different degrees of malocclusion.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Her research studied the Evaluation of Skeletal Maturation by comparing Cervical Vertebrae as observed in Lateral Cephalogram, Middle Phalanx of 3rd Finger & Mandibular Canine of Male and Female in age group 8-16 years.
                     </p>
                   </div>
                 </div>
                 {/* Doctor Image */}
                 <div className="lg:w-1/3 flex justify-center">
                   <img
-                    src="/shymali.webp"
-                    alt="Dr. Shymali Shah"
+                    src="/bindipatel.jpeg"
+                    alt="Dr. Bindi Patel"
                     className="w-80 h-80 object-cover object-top rounded-lg"
                   />
                 </div>
