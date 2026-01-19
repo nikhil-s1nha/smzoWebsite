@@ -320,6 +320,40 @@ export default function About() {
             </div>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="bg-gray-100 rounded-lg p-8">
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                    Dr. Vishnu Teja Obulareddy
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Dr. Vishnu Teja Obulareddy received her Bachelor of Science in Dental Surgery from Rajiv Gandhi University. She further advanced her expertise by completing a Specialty Certification in Advanced Education in General Dentistry from Temple University.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Her focus is on comprehensive care and preserving as much of the natural tooth as possible. <br/>Dr. Obulareddy strives to treat everyone how she would want her family to be treated, bringing a compassionate and patient-centered approach to every dental procedure.
+                    </p>
+                  </div>
+                </div>
+                {/* Doctor Image */}
+                <div className="lg:w-1/3 flex justify-center">
+                  <img
+                    src="/vishnu.jpeg"
+                    alt="Dr. Vishnu Teja Obulareddy"
+                    className="w-80 h-80 object-cover object-top rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Commented out team members grid for now
           <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
