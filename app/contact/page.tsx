@@ -35,6 +35,14 @@ export default function Contact() {
       const urlParams = new URLSearchParams(window.location.search)
       if (urlParams.get('success') === 'true') {
         setIsSubmitted(true)
+        // Fire Google Ads conversion event for appointment request
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-983885403/OG6_CMz3gKAbENvMk9UD',
+            value: 1.0,
+            currency: 'USD',
+          })
+        }
         // Clean up the URL
         window.history.replaceState({}, document.title, window.location.pathname)
       }
