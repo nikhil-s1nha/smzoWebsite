@@ -198,7 +198,7 @@ export default function Home() {
             </button>
             <button
               className="btn-primary px-10 py-4 text-lg"
-              onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
+              onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
             >
               Book Your Appointment
             </button>

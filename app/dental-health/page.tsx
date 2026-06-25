@@ -508,7 +508,7 @@ export default function DentalHealth() {
                 className="bg-white text-primary-600 font-medium py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
+                onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
               >
                 Book Appointment
               </motion.button>

@@ -286,7 +286,7 @@ export default function Services() {
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.patientviewer.com/?RSID=32343634&CID=30&C=1248', '_blank')}
+                onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
               >
                 Book Appointment
               </motion.button>
