@@ -17,25 +17,23 @@ import Navigation from '@/components/Navigation'
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const contactInfoRef = useRef<HTMLDivElement>(null)
   const [showScrollCue, setShowScrollCue] = useState(true)
-  const [redirectUrl, setRedirectUrl] = useState('/contact?success=true')
   const [insuranceType, setInsuranceType] = useState('')
 
-  // Set redirect URL for form submission
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setRedirectUrl(`${window.location.origin}/contact?success=true`)
-    }
-  }, [])
-
-  // Check if user just submitted form successfully
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search)
-      if (urlParams.get('success') === 'true') {
-        setIsSubmitted(true)
-        // Fire Google Ads conversion event for appointment request
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    const form = e.currentTarget
+    const data = new FormData(form)
+    try {
+      const res = await fetch('https://formspree.io/f/xpwlrvov', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
         if (typeof (window as any).gtag === 'function') {
           (window as any).gtag('event', 'conversion', {
             send_to: 'AW-983885403/OG6_CMz3gKAbENvMk9UD',
@@ -43,11 +41,12 @@ export default function Contact() {
             currency: 'USD',
           })
         }
-        // Clean up the URL
-        window.history.replaceState({}, document.title, window.location.pathname)
+        setIsSubmitted(true)
       }
+    } finally {
+      setIsSubmitting(false)
     }
-  }, [])
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -230,13 +229,10 @@ export default function Contact() {
                   </motion.button>
                 </motion.div>
               ) : (
-                <form 
-                  action="https://formspree.io/f/xpwlrvov" 
-                  method="POST" 
+                <form
+                  onSubmit={handleSubmit}
                   className="space-y-4"
                 >
-                  {/* Hidden field to redirect back to contact page after submission */}
-                  <input type="hidden" name="_next" value={redirectUrl} />
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -353,12 +349,13 @@ export default function Contact() {
                   
                   <motion.button
                     type="submit"
-                    className="btn-primary w-full flex items-center justify-center"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </form>
               )}
