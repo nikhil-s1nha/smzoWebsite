@@ -48,6 +48,15 @@ export default function Contact() {
     }
   }
 
+  const handlePhoneClick = () => {
+    if (typeof (window as any).gtag === 'function'){
+      (window as any).gtag('event', 'conversion', {
+        send_to: 'AW-983885403/SI5HC06yxcwcENvMk9UD'
+      })
+    }
+  }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (!contactInfoRef.current) return
@@ -166,9 +175,15 @@ export default function Contact() {
                 </h3>
                 <div className="space-y-2">
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600">
-                      {detail}
-                    </p>
+                    info.title === 'Phone' ? (
+                      <a key={idx} href="tel:510-505-0123" onClick={handlePhoneClick} className="text-gray-600 hover:text-primary-600">
+                        {detail}
+                      </a>
+                    ) : (
+                      <p key={idx} className="text-gray-600">
+                        {detail}
+                      </p>
+                    )
                   ))}
                 </div>
               </motion.div>
@@ -401,7 +416,9 @@ export default function Contact() {
                 </p>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-red-600 mr-2" />
-                  <span className="text-red-600 font-semibold">(510) 505-0123</span>
+                  <a href="tel:510-505-0123" onClick={handlePhoneClick} className="text-red-600 font-semibold hover:underline">
+                    (510) 505-0123
+                  </a>
                 </div>
               </div>
 
@@ -517,7 +534,10 @@ export default function Contact() {
                 className="border-2 border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
+                onClick={() => {
+                  handlePhoneClick()
+                  window.open('tel:510-505-0123', '_self')
+                }}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
