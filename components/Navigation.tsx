@@ -11,6 +11,14 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false)
   const [aboutDropdown, setAboutDropdown] = useState(false)
 
+  const handleZocDocClick = () => {
+  if (typeof (window as any).gtag === 'function') {
+    (window as any).gtag('event', 'conversion', {
+      send_to: 'AW-983885403/XkoOCMSclc0cENvMk9UD',
+    })
+  }
+}
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -108,7 +116,10 @@ const Navigation = () => {
             >
               <button 
                 className="btn-primary"
-                onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
+                onClick={() => {
+                  handleZocDocClick()
+                  window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')
+                }}
               >
                 Book Appointment
               </button>
@@ -180,6 +191,7 @@ const Navigation = () => {
                   <button
                     className="btn-primary w-full text-center block"
                     onClick={() => {
+                      handleZocDocClick()
                       setIsOpen(false)
                       window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')
                     }}

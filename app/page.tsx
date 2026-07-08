@@ -154,11 +154,26 @@ export default function Home() {
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
+  const handleZocDocClick = () => {
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'conversion', {
+        send_to: 'AW-983885403/XkoOCMSclc0cENvMk9UD',
+      })
+    }
+  }
+
+  const handlePhoneClick = () => {
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'conversion', {
+        send_to: 'AW-983885403/SI5HCO6yxcwcENvMk9UD',
+      })
+    }
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 20000) // 20 seconds
-
+    }, 20000)
     return () => clearInterval(interval)
   }, [testimonials.length])
 
@@ -176,7 +191,6 @@ export default function Home() {
       
       {/* Full-page Hero Banner */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-dental-50 overflow-hidden">
-        {/* Banner background image */}
         <div className="absolute inset-0 w-full h-full z-0">
           <Image
             src="/bannerFront.jpg"
@@ -198,7 +212,10 @@ export default function Home() {
             </button>
             <button
               className="btn-primary px-10 py-4 text-lg"
-              onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
+              onClick={() => {
+                handleZocDocClick()
+                window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')
+              }}
             >
               Book Your Appointment
             </button>
@@ -207,7 +224,9 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex items-center justify-center">
                 <Phone className="w-5 h-5 mr-2 text-primary-600" />
-                <span className="font-medium">(510) 505-0123</span>
+                <a href="tel:510-505-0123" onClick={handlePhoneClick} className="font-medium hover:text-primary-600">
+                  (510) 505-0123
+                </a>
               </div>
               <div className="flex items-center justify-center">
                 <Mail className="w-5 h-5 mr-2 text-primary-600" />
@@ -232,7 +251,6 @@ export default function Home() {
       <section className="relative py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-12">
-            {/* Left: Dentist */}
             <div className="flex-1 flex flex-col items-center lg:items-end text-center lg:text-right justify-center">
               <img
                 src="/doctor.png"
@@ -250,11 +268,9 @@ export default function Home() {
                 Learn More About Dr. Sinha
               </button>
             </div>
-            {/* Vertical Divider */}
             <div className="hidden lg:flex items-stretch">
               <div className="w-px bg-gray-200 mx-12 self-stretch opacity-50" />
             </div>
-            {/* Right: Why Choose */}
             <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left justify-center">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Smile Zone?</h2>
               <p className="text-xl text-gray-600 mb-8 max-w-md">
@@ -293,14 +309,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Services
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Comprehensive dental care for every member of your family
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -319,12 +332,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {service.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
                   <motion.button
                     className="text-primary-600 font-medium flex items-center group-hover:text-primary-700 transition-colors duration-200"
                     whileHover={{ x: 5 }}
@@ -347,15 +356,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-8"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              What Our Patients Say
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real stories from our patients and their families.
-            </p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Patients Say</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Real stories from our patients and their families.</p>
           </motion.div>
-
-          {/* Testimonials Carousel */}
           <div className="relative max-w-4xl mx-auto">
             <div className="relative h-96 overflow-hidden rounded-xl">
               <AnimatePresence mode="wait">
@@ -369,13 +372,13 @@ export default function Home() {
                 >
                   <div className="bg-white p-8 text-center w-full h-full flex flex-col justify-center rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] transition-all duration-300">
                     <div className="flex-1 flex flex-col justify-center">
-                                              <p className={`text-gray-700 mb-4 leading-relaxed ${
-                          testimonials[currentTestimonial].text.length > 200 
-                            ? 'text-sm md:text-base' 
-                            : testimonials[currentTestimonial].text.length > 100 
-                            ? 'text-base md:text-lg' 
-                            : 'text-lg md:text-xl'
-                        }`}>
+                      <p className={`text-gray-700 mb-4 leading-relaxed ${
+                        testimonials[currentTestimonial].text.length > 200 
+                          ? 'text-sm md:text-base' 
+                          : testimonials[currentTestimonial].text.length > 100 
+                          ? 'text-base md:text-lg' 
+                          : 'text-lg md:text-xl'
+                      }`}>
                         "{testimonials[currentTestimonial].text}"
                       </p>
                     </div>
@@ -391,8 +394,6 @@ export default function Home() {
                 </motion.div>
               </AnimatePresence>
             </div>
-
-            {/* Navigation Buttons */}
             <button
               onClick={prevTestimonial}
               className="absolute -left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-200 z-10 border border-gray-200"
@@ -405,8 +406,6 @@ export default function Home() {
             >
               <ChevronRight className="w-7 h-7 text-gray-600" />
             </button>
-
-            {/* Dots Indicator */}
             <div className="flex justify-center mt-8 space-x-2">
               {testimonials.map((_, index) => (
                 <button
@@ -423,8 +422,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
@@ -444,7 +441,6 @@ export default function Home() {
                 Providing exceptional dental care with a focus on patient comfort and satisfaction.
               </p>
             </div>
-            
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
@@ -454,7 +450,6 @@ export default function Home() {
                 <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>
-            
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400">
@@ -464,7 +459,6 @@ export default function Home() {
                 <li><a href="/services" className="hover:text-white transition-colors">Emergency Care</a></li>
               </ul>
             </div>
-            
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
@@ -474,7 +468,9 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  <span>(510) 505-0123</span>
+                  <a href="tel:510-505-0123" onClick={handlePhoneClick} className="hover:text-white transition-colors">
+                    (510) 505-0123
+                  </a>
                 </div>
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
@@ -483,7 +479,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 Smile Zone Family Dental. All rights reserved.</p>
           </div>
@@ -491,4 +486,4 @@ export default function Home() {
       </footer>
     </div>
   )
-} 
+}

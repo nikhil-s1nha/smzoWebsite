@@ -60,6 +60,14 @@ export default function Contact() {
   }, 300)
 }
 
+  const handleZocDocClick = () => {
+  if (typeof (window as any).gtag === 'function') {
+    (window as any).gtag('event', 'conversion', {
+      send_to: 'AW-983885403/XkoOCMSclc0cENvMk9UD',
+    })
+  }
+}
+
   useEffect(() => {
     const handleScroll = () => {
       if (!contactInfoRef.current) return
@@ -540,7 +548,10 @@ export default function Contact() {
                 className="border-2 border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://www.zocdoc.com/booking-link/dentist/milu-sinha-dds-46516', '_blank')}
+                onClick={() => {
+                  handleZocDocClick()
+                  window.open('https://www.zocdoc.com/dentist/milu-sinha-dds-46516?isNewPatient=true&utm_term=booking_link&referrerType=widget', '_blank')
+                }}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
