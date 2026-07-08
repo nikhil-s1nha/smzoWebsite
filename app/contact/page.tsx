@@ -48,13 +48,17 @@ export default function Contact() {
     }
   }
 
-  const handlePhoneClick = () => {
-    if (typeof (window as any).gtag === 'function'){
-      (window as any).gtag('event', 'conversion', {
-        send_to: 'AW-983885403/SI5HCO6yxcwcENvMk9UD'
-      })
-    }
+  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof (window as any).gtag === 'function') {
+    (window as any).gtag('event', 'conversion', {
+      send_to: 'AW-983885403/SI5HCO6yxcwcENvMk9UD',
+    })
   }
+  setTimeout(() => {
+    window.location.href = 'tel:510-505-0123'
+  }, 300)
+}
 
   useEffect(() => {
     const handleScroll = () => {
@@ -525,8 +529,8 @@ export default function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  handlePhoneClick()
-                  window.open('tel:510-505-0123', '_self')
+                  handlePhoneClick(new MouseEvent('click') as any)
+                  setTimeout(() => window.open('tel:510-505-0123', '_self'), 300)
                 }}
               >
                 <Phone className="w-5 h-5 mr-2" />
